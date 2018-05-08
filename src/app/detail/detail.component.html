@@ -1,0 +1,18 @@
+This is detail-component
+<div *ngIf="person">
+  Name: {{ person.username }}<br/>
+  Email: {{ person.email }}<br/>
+  website: <a target="_blank" href="http://{{person.website}}">{{ person.website }}</a><br/>
+  Albums:
+  <ul>
+    <li *ngFor="let item of albums; let i = index">
+      {{item.title}}
+      <button (click)="viewAlbum(i, item.id)">View</button>
+      <div *ngIf="item.photos">
+        <div *ngFor="let photo of item.photos">
+          <img height="20" width="20" src="{{photo?.url}}" alt="{{photo?.title}}">
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

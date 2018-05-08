@@ -1,0 +1,21 @@
+<div>
+  Welcome to dashboard
+  <div>
+    <input type="text" name="name" [(ngModel)]="person.username" placeholder="Name">
+    <input type="text" name="email" [(ngModel)]="person.email" placeholder="Email">
+    <input type="text" name="website" [(ngModel)]="person.website" placeholder="Website">
+    <button (click)="save()">Save</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let item of list; let i = index">
+      {{ item.username }} <button (click)="choosePerson(item)">View details</button> <button (click)="edit(i)">Edit</button> <button (click)="remove(i)">Delete</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="selectedPerson">
+  <app-detail [person]="selectedPerson"></app-detail>
+</div>
+
+
+
